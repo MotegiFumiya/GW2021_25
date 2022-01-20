@@ -76,13 +76,21 @@ namespace CountDiary {
             countchara.ReadOnly = true;
         }
 
-        private void countchara_TextChanged(object sender, EventArgs e) {
-            //int tlength = this.TextDiary.TextLength;
-            int tlength = this.TextDiary.Text.Length;
-            //countchara.Show(tlength.ToString);
+        
 
+        private void Resetb_Click(object sender, EventArgs e) {
+            DialogResult reset = MessageBox.Show("本当にリセットしますか？", "文字数リセット", MessageBoxButtons.YesNo);
+            if (reset == DialogResult.Yes) {
+                
+            }
         }
 
-        
+        private void update_Click(object sender, EventArgs e) {
+            int tlength = this.TextDiary.TextLength;
+
+            MessageBox.Show(tlength.ToString());
+
+            //countchara.Show(tlength);
+        }
     }
 }

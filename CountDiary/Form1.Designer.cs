@@ -34,7 +34,8 @@ namespace CountDiary {
             this.countchara = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.count = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Resetb = new System.Windows.Forms.Button();
+            this.update = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@ namespace CountDiary {
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TextDiary.Font = new System.Drawing.Font("ＭＳ 明朝", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.TextDiary.Location = new System.Drawing.Point(12, 39);
+            this.TextDiary.Location = new System.Drawing.Point(13, 34);
             this.TextDiary.MaxLength = 500;
             this.TextDiary.Multiline = true;
             this.TextDiary.Name = "TextDiary";
@@ -55,6 +56,7 @@ namespace CountDiary {
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.メニューToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -78,15 +80,15 @@ namespace CountDiary {
             // 
             this.日木一覧ToolStripMenuItem.Name = "日木一覧ToolStripMenuItem";
             this.日木一覧ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.日木一覧ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.日木一覧ToolStripMenuItem.Text = "日木一覧...";
+            this.日木一覧ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.日木一覧ToolStripMenuItem.Text = "過去の日記を開く...";
             this.日木一覧ToolStripMenuItem.Click += new System.EventHandler(this.日木一覧ToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
             this.保存ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.保存ToolStripMenuItem.Text = "名前を付けて保存...";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 
@@ -94,7 +96,7 @@ namespace CountDiary {
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
             this.終了ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.終了ToolStripMenuItem.Text = "終了";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
             // 
@@ -102,7 +104,7 @@ namespace CountDiary {
             // 
             this.木を見るToolStripMenuItem.Name = "木を見るToolStripMenuItem";
             this.木を見るToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.木を見るToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.木を見るToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.木を見るToolStripMenuItem.Text = "木を見る";
             this.木を見るToolStripMenuItem.Click += new System.EventHandler(this.木を見るToolStripMenuItem_Click_1);
             // 
@@ -111,21 +113,20 @@ namespace CountDiary {
             this.countchara.BackColor = System.Drawing.Color.Red;
             this.countchara.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.countchara.ForeColor = System.Drawing.SystemColors.Window;
-            this.countchara.Location = new System.Drawing.Point(128, 431);
+            this.countchara.Location = new System.Drawing.Point(134, 429);
             this.countchara.MaxLength = 0;
             this.countchara.Name = "countchara";
             this.countchara.Size = new System.Drawing.Size(148, 31);
             this.countchara.TabIndex = 2;
             this.countchara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.countchara.TextChanged += new System.EventHandler(this.countchara_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 434);
+            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(18, 431);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 24);
             this.label1.TabIndex = 3;
@@ -141,15 +142,30 @@ namespace CountDiary {
             this.count.Size = new System.Drawing.Size(0, 12);
             this.count.TabIndex = 4;
             // 
-            // label2
+            // Resetb
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Red;
-            this.label2.Location = new System.Drawing.Point(587, 448);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 12);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
+            this.Resetb.BackColor = System.Drawing.SystemColors.ControlText;
+            this.Resetb.Font = new System.Drawing.Font("MS UI Gothic", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.Resetb.ForeColor = System.Drawing.Color.Red;
+            this.Resetb.Location = new System.Drawing.Point(643, 428);
+            this.Resetb.Name = "Resetb";
+            this.Resetb.Size = new System.Drawing.Size(160, 31);
+            this.Resetb.TabIndex = 5;
+            this.Resetb.Text = "文字数リセット";
+            this.Resetb.UseVisualStyleBackColor = false;
+            this.Resetb.Click += new System.EventHandler(this.Resetb_Click);
+            // 
+            // update
+            // 
+            this.update.BackColor = System.Drawing.Color.White;
+            this.update.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.update.Location = new System.Drawing.Point(306, 429);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(69, 31);
+            this.update.TabIndex = 6;
+            this.update.Text = "更新";
+            this.update.UseVisualStyleBackColor = false;
+            this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // Form1
             // 
@@ -157,7 +173,8 @@ namespace CountDiary {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(815, 464);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.update);
+            this.Controls.Add(this.Resetb);
             this.Controls.Add(this.count);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.countchara);
@@ -187,7 +204,8 @@ namespace CountDiary {
         private System.Windows.Forms.TextBox countchara;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label count;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Resetb;
+        private System.Windows.Forms.Button update;
     }
 }
 
