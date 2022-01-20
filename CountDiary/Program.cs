@@ -20,13 +20,13 @@ namespace CountDiary {
             //ファイルパス
             var filePath = @"C:\Users\infosys\source\repos\GW2021_25\Diary.csv";
 
-            //csvに入れるデータ
-            var Diary = new List<List<string>> {
-                new List<string>{"diary"},
-            };
+            ////csvに入れるデータ
+            //var Diary = new List<List<string>> {
+            //    new List<string>{"diary"},
+            //};
 
             //ファイルの書き込み
-            File.WriteAllLines(filePath, Diary.Select(val => string.Join(",", val)));
+            //File.WriteAllLines(filePath, Diary.Select(val => string.Join(",", val)));
 
             //ファイルの読み込み
             var csvList = File.ReadAllLines(filePath).Where(line =>

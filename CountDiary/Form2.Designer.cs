@@ -33,6 +33,7 @@ namespace CountDiary {
             this.ClientSize = new System.Drawing.Size(484, 461);
             this.Name = "Form2";
             this.Text = "木";
+            this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
 
         }
