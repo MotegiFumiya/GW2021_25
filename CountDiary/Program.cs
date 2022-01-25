@@ -17,8 +17,10 @@ namespace CountDiary {
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
+
+
             //ファイルパス
-            var filePath = @"C:\Users\infosys\source\repos\GW2021_25\Diary.csv";
+            //var filePath = @"C:\Users\infosys\source\repos\GW2021_25\Diary.csv";
 
             ////csvに入れるデータ
             //var Diary = new List<List<string>> {
@@ -29,13 +31,13 @@ namespace CountDiary {
             //File.WriteAllLines(filePath, Diary.Select(val => string.Join(",", val)));
 
             //ファイルの読み込み
-            var csvList = File.ReadAllLines(filePath).Where(line =>
-              !string.IsNullOrWhiteSpace(line)).Skip(1).Select(line => line.Split(',')).ToList();
+            //var csvList = File.ReadAllLines(filePath).Where(line =>
+            //  !string.IsNullOrWhiteSpace(line)).Skip(1).Select(line => line.Split(',')).ToList();
 
             //読み込んだファイルのデータ表示
-            csvList.ForEach(line => {
-                Console.WriteLine(string.Join("", line));
-            });
+            //csvList.ForEach(line => {
+            //    Console.WriteLine(string.Join("", line));
+            //});
         }
     }
 }

@@ -36,6 +36,7 @@ namespace CountDiary {
             this.count = new System.Windows.Forms.Label();
             this.Resetb = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
+            this.文字全削除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,7 +72,8 @@ namespace CountDiary {
             this.日木一覧ToolStripMenuItem,
             this.保存ToolStripMenuItem,
             this.終了ToolStripMenuItem,
-            this.木を見るToolStripMenuItem});
+            this.木を見るToolStripMenuItem,
+            this.文字全削除ToolStripMenuItem});
             this.メニューToolStripMenuItem.Name = "メニューToolStripMenuItem";
             this.メニューToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.メニューToolStripMenuItem.Text = "メニュー";
@@ -167,6 +169,13 @@ namespace CountDiary {
             this.update.UseVisualStyleBackColor = false;
             this.update.Click += new System.EventHandler(this.update_Click);
             // 
+            // 文字全削除ToolStripMenuItem
+            // 
+            this.文字全削除ToolStripMenuItem.Name = "文字全削除ToolStripMenuItem";
+            this.文字全削除ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.文字全削除ToolStripMenuItem.Text = "文字全削除";
+            this.文字全削除ToolStripMenuItem.Click += new System.EventHandler(this.文字全削除ToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -206,6 +215,7 @@ namespace CountDiary {
         private System.Windows.Forms.Label count;
         private System.Windows.Forms.Button Resetb;
         private System.Windows.Forms.Button update;
+        private System.Windows.Forms.ToolStripMenuItem 文字全削除ToolStripMenuItem;
     }
 }
 

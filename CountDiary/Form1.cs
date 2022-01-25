@@ -68,6 +68,20 @@ namespace CountDiary {
             }
         }
 
+        private void 文字全削除ToolStripMenuItem_Click(object sender, EventArgs e) {
+            ClearTextBox(this);
+        }
+        public static void ClearTextBox(Control hParent) {
+            foreach(Control cControl in hParent.Controls) {
+                if (cControl.HasChildren == true) {
+                    ClearTextBox(cControl);
+                }
+
+                if(cControl is TextBoxBase) {
+                    cControl.Text = string.Empty;
+                }
+            }
+        }
 
         private void Form1_Load(object sender, EventArgs e) {
             this.MaximizeBox = false;
@@ -92,5 +106,6 @@ namespace CountDiary {
 
             //countchara.Show(tlength);
         }
+
     }
 }
