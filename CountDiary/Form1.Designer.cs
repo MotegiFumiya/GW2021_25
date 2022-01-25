@@ -172,6 +172,7 @@ namespace CountDiary {
             // 文字全削除ToolStripMenuItem
             // 
             this.文字全削除ToolStripMenuItem.Name = "文字全削除ToolStripMenuItem";
+            this.文字全削除ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
             this.文字全削除ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.文字全削除ToolStripMenuItem.Text = "文字全削除";
             this.文字全削除ToolStripMenuItem.Click += new System.EventHandler(this.文字全削除ToolStripMenuItem_Click);
