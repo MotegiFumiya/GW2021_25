@@ -27,16 +27,16 @@ namespace CountDiary {
             this.TextDiary = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.メニューToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.日木一覧ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.過去の日記を開くToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.木を見るToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.countchara = new System.Windows.Forms.TextBox();
+            this.文字全削除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.count = new System.Windows.Forms.Label();
             this.Resetb = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
-            this.文字全削除ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.countchara = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +69,7 @@ namespace CountDiary {
             // メニューToolStripMenuItem
             // 
             this.メニューToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.日木一覧ToolStripMenuItem,
+            this.過去の日記を開くToolStripMenuItem,
             this.保存ToolStripMenuItem,
             this.終了ToolStripMenuItem,
             this.木を見るToolStripMenuItem,
@@ -78,13 +78,13 @@ namespace CountDiary {
             this.メニューToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.メニューToolStripMenuItem.Text = "メニュー";
             // 
-            // 日木一覧ToolStripMenuItem
+            // 過去の日記を開くToolStripMenuItem
             // 
-            this.日木一覧ToolStripMenuItem.Name = "日木一覧ToolStripMenuItem";
-            this.日木一覧ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.日木一覧ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.日木一覧ToolStripMenuItem.Text = "過去の日記を開く...";
-            this.日木一覧ToolStripMenuItem.Click += new System.EventHandler(this.日木一覧ToolStripMenuItem_Click);
+            this.過去の日記を開くToolStripMenuItem.Name = "過去の日記を開くToolStripMenuItem";
+            this.過去の日記を開くToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.過去の日記を開くToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.過去の日記を開くToolStripMenuItem.Text = "過去の日記を開く...";
+            this.過去の日記を開くToolStripMenuItem.Click += new System.EventHandler(this.過去の日記を開くToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem
             // 
@@ -110,17 +110,13 @@ namespace CountDiary {
             this.木を見るToolStripMenuItem.Text = "木を見る";
             this.木を見るToolStripMenuItem.Click += new System.EventHandler(this.木を見るToolStripMenuItem_Click_1);
             // 
-            // countchara
+            // 文字全削除ToolStripMenuItem
             // 
-            this.countchara.BackColor = System.Drawing.Color.Red;
-            this.countchara.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.countchara.ForeColor = System.Drawing.SystemColors.Window;
-            this.countchara.Location = new System.Drawing.Point(134, 429);
-            this.countchara.MaxLength = 0;
-            this.countchara.Name = "countchara";
-            this.countchara.Size = new System.Drawing.Size(148, 31);
-            this.countchara.TabIndex = 2;
-            this.countchara.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.文字全削除ToolStripMenuItem.Name = "文字全削除ToolStripMenuItem";
+            this.文字全削除ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.文字全削除ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.文字全削除ToolStripMenuItem.Text = "文字全削除";
+            this.文字全削除ToolStripMenuItem.Click += new System.EventHandler(this.文字全削除ToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -161,7 +157,7 @@ namespace CountDiary {
             // 
             this.update.BackColor = System.Drawing.Color.White;
             this.update.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.update.Location = new System.Drawing.Point(306, 429);
+            this.update.Location = new System.Drawing.Point(259, 429);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(69, 31);
             this.update.TabIndex = 6;
@@ -169,13 +165,16 @@ namespace CountDiary {
             this.update.UseVisualStyleBackColor = false;
             this.update.Click += new System.EventHandler(this.update_Click);
             // 
-            // 文字全削除ToolStripMenuItem
+            // countchara
             // 
-            this.文字全削除ToolStripMenuItem.Name = "文字全削除ToolStripMenuItem";
-            this.文字全削除ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.文字全削除ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.文字全削除ToolStripMenuItem.Text = "文字全削除";
-            this.文字全削除ToolStripMenuItem.Click += new System.EventHandler(this.文字全削除ToolStripMenuItem_Click);
+            this.countchara.AutoSize = true;
+            this.countchara.BackColor = System.Drawing.Color.Red;
+            this.countchara.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.countchara.Location = new System.Drawing.Point(134, 432);
+            this.countchara.Name = "countchara";
+            this.countchara.Size = new System.Drawing.Size(119, 24);
+            this.countchara.TabIndex = 7;
+            this.countchara.Text = "            0";
             // 
             // Form1
             // 
@@ -183,11 +182,11 @@ namespace CountDiary {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(815, 464);
+            this.Controls.Add(this.countchara);
             this.Controls.Add(this.update);
             this.Controls.Add(this.Resetb);
             this.Controls.Add(this.count);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.countchara);
             this.Controls.Add(this.TextDiary);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -207,16 +206,16 @@ namespace CountDiary {
         private System.Windows.Forms.TextBox TextDiary;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem メニューToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 日木一覧ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem 過去の日記を開くToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 保存ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 終了ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 木を見るToolStripMenuItem;
-        private System.Windows.Forms.TextBox countchara;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label count;
         private System.Windows.Forms.Button Resetb;
         private System.Windows.Forms.Button update;
         private System.Windows.Forms.ToolStripMenuItem 文字全削除ToolStripMenuItem;
+        private System.Windows.Forms.Label countchara;
     }
 }
 

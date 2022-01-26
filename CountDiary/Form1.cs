@@ -40,26 +40,24 @@ namespace CountDiary {
             SaveFileDialog sfd = new SaveFileDialog();
             //はじめに「ファイル名」で表示される文字列を指定する
             sfd.FileName = "日木.csv";
-            ////はじめに表示されるフォルダを指定する
-            //sfd.InitialDirectory = @"C:\Users\infosys\source\repos\GW2021_25\Diary.csv";
-
-            //sfd.Filter = "HTMLファイル(*.html;*.htm)|*.html;*.htm|すべてのファイル(*.*)|*.*";
+            
             sfd.ShowDialog();
             
-            StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.ASCII);
+            StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8);
             sw.Write(TextDiary.Text);
+            //sw.WriteLine(TextDiary.Text);
             sw.Close();
 
 
         }
 
-        private void 日木一覧ToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void 過去の日記を開くToolStripMenuItem_Click(object sender, EventArgs e) {
             OpenFileDialog ofd = new OpenFileDialog();
 
-            ofd.InitialDirectory = @"C:\Users\infosys\source\repos\GW2021_25\Diary.csv";
+            ofd.InitialDirectory= @"C:\Users\infosys\source\repos\GW2021_25\Diary.csv";
 
             //タイトルを設定する
-            ofd.Title = "開くファイルを選択してください";
+            ofd.Title= "開くファイルを選択してください";
 
             //ダイアログを表示する
             if (ofd.ShowDialog() == DialogResult.OK) {
@@ -71,6 +69,7 @@ namespace CountDiary {
         private void 文字全削除ToolStripMenuItem_Click(object sender, EventArgs e) {
             ClearTextBox(this);
         }
+
         public static void ClearTextBox(Control hParent) {
             foreach(Control cControl in hParent.Controls) {
                 if (cControl.HasChildren == true) {
@@ -85,12 +84,7 @@ namespace CountDiary {
 
         private void Form1_Load(object sender, EventArgs e) {
             this.MaximizeBox = false;
-
-            //ユーザ側は入力不可
-            countchara.ReadOnly = true;
-        }
-
-        
+           }
 
         private void Resetb_Click(object sender, EventArgs e) {
             DialogResult reset = MessageBox.Show("本当にリセットしますか？", "文字数リセット", MessageBoxButtons.YesNo);
@@ -100,10 +94,12 @@ namespace CountDiary {
         }
 
         private void update_Click(object sender, EventArgs e) {
-            int tlength = this.TextDiary.TextLength;
+           
+                int tlength = this.TextDiary.TextLength;
 
-            MessageBox.Show(tlength.ToString());
-
+                //countchara.Show(tlength) 
+                
+            //string textvalue = TextDiary.Text;
             //countchara.Show(tlength);
         }
 
