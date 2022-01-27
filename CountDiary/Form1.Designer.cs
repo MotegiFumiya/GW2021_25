@@ -27,7 +27,6 @@ namespace CountDiary {
             this.TextDiary = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.メニューToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.過去の日記を開くToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.終了ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.木を見るToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -37,6 +36,10 @@ namespace CountDiary {
             this.Resetb = new System.Windows.Forms.Button();
             this.update = new System.Windows.Forms.Button();
             this.countchara = new System.Windows.Forms.Label();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.call = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,7 +72,6 @@ namespace CountDiary {
             // メニューToolStripMenuItem
             // 
             this.メニューToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.過去の日記を開くToolStripMenuItem,
             this.保存ToolStripMenuItem,
             this.終了ToolStripMenuItem,
             this.木を見るToolStripMenuItem,
@@ -78,19 +80,11 @@ namespace CountDiary {
             this.メニューToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.メニューToolStripMenuItem.Text = "メニュー";
             // 
-            // 過去の日記を開くToolStripMenuItem
-            // 
-            this.過去の日記を開くToolStripMenuItem.Name = "過去の日記を開くToolStripMenuItem";
-            this.過去の日記を開くToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.過去の日記を開くToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
-            this.過去の日記を開くToolStripMenuItem.Text = "過去の日記を開く...";
-            this.過去の日記を開くToolStripMenuItem.Click += new System.EventHandler(this.過去の日記を開くToolStripMenuItem_Click);
-            // 
             // 保存ToolStripMenuItem
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
             this.保存ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.保存ToolStripMenuItem.Text = "名前を付けて保存...";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 
@@ -98,7 +92,7 @@ namespace CountDiary {
             // 
             this.終了ToolStripMenuItem.Name = "終了ToolStripMenuItem";
             this.終了ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.終了ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.終了ToolStripMenuItem.Text = "終了";
             this.終了ToolStripMenuItem.Click += new System.EventHandler(this.終了ToolStripMenuItem_Click);
             // 
@@ -106,7 +100,7 @@ namespace CountDiary {
             // 
             this.木を見るToolStripMenuItem.Name = "木を見るToolStripMenuItem";
             this.木を見るToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.木を見るToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.木を見るToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.木を見るToolStripMenuItem.Text = "木を見る";
             this.木を見るToolStripMenuItem.Click += new System.EventHandler(this.木を見るToolStripMenuItem_Click_1);
             // 
@@ -114,16 +108,16 @@ namespace CountDiary {
             // 
             this.文字全削除ToolStripMenuItem.Name = "文字全削除ToolStripMenuItem";
             this.文字全削除ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-            this.文字全削除ToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.文字全削除ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.文字全削除ToolStripMenuItem.Text = "文字全削除";
             this.文字全削除ToolStripMenuItem.Click += new System.EventHandler(this.文字全削除ToolStripMenuItem_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Black;
+            this.label1.BackColor = System.Drawing.Color.Red;
             this.label1.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.ForeColor = System.Drawing.Color.Black;
             this.label1.Location = new System.Drawing.Point(18, 431);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(110, 24);
@@ -157,24 +151,42 @@ namespace CountDiary {
             // 
             this.update.BackColor = System.Drawing.Color.White;
             this.update.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.update.Location = new System.Drawing.Point(259, 429);
+            this.update.Location = new System.Drawing.Point(491, 426);
             this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(69, 31);
+            this.update.Size = new System.Drawing.Size(70, 35);
             this.update.TabIndex = 6;
-            this.update.Text = "更新";
+            this.update.Text = "保存";
             this.update.UseVisualStyleBackColor = false;
             this.update.Click += new System.EventHandler(this.update_Click);
             // 
             // countchara
             // 
             this.countchara.AutoSize = true;
-            this.countchara.BackColor = System.Drawing.Color.Red;
+            this.countchara.BackColor = System.Drawing.Color.Black;
             this.countchara.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.countchara.ForeColor = System.Drawing.Color.White;
             this.countchara.Location = new System.Drawing.Point(134, 432);
             this.countchara.Name = "countchara";
-            this.countchara.Size = new System.Drawing.Size(119, 24);
+            this.countchara.Size = new System.Drawing.Size(23, 24);
             this.countchara.TabIndex = 7;
-            this.countchara.Text = "            0";
+            this.countchara.Text = "0";
+            this.countchara.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // call
+            // 
+            this.call.BackColor = System.Drawing.Color.White;
+            this.call.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.call.Location = new System.Drawing.Point(567, 426);
+            this.call.Name = "call";
+            this.call.Size = new System.Drawing.Size(70, 35);
+            this.call.TabIndex = 8;
+            this.call.Text = "呼出";
+            this.call.UseVisualStyleBackColor = false;
+            this.call.Click += new System.EventHandler(this.call_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Form1
             // 
@@ -182,6 +194,7 @@ namespace CountDiary {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(815, 464);
+            this.Controls.Add(this.call);
             this.Controls.Add(this.countchara);
             this.Controls.Add(this.update);
             this.Controls.Add(this.Resetb);
@@ -206,7 +219,6 @@ namespace CountDiary {
         private System.Windows.Forms.TextBox TextDiary;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem メニューToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 過去の日記を開くToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 保存ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 終了ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 木を見るToolStripMenuItem;
@@ -216,6 +228,10 @@ namespace CountDiary {
         private System.Windows.Forms.Button update;
         private System.Windows.Forms.ToolStripMenuItem 文字全削除ToolStripMenuItem;
         private System.Windows.Forms.Label countchara;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Button call;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
