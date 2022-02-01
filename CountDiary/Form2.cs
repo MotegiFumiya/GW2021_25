@@ -16,7 +16,8 @@ namespace CountDiary {
 
         private void Form2_Load(object sender, EventArgs e) {
             //画像ファイルを読み込む
-            
+           
+            wood.ImageLocation = "C:/Users/infosys/Desktop/nae.png";
         }
         
         

@@ -19,6 +19,8 @@ namespace CountDiary {
 
         public Form1() {
             InitializeComponent();
+
+            
         }
         
         private void textBox1_TextChanged(object sender, EventArgs e) {
@@ -27,8 +29,11 @@ namespace CountDiary {
         
         //ウインドウ遷移
         private void 木を見るToolStripMenuItem_Click_1(object sender, EventArgs e) {
-            Form2 f2 = new Form2();
-            f2.Show();
+           
+            //if()
+            
+            //Form2 f2 = new Form2();
+            //f2.Show();
         }
 
         //終了処理
@@ -41,10 +46,14 @@ namespace CountDiary {
 
         //日記保存
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
+            //現在の日付のみ取得
+            String now = DateTime.Now.ToString("D");
+            
             SaveFileDialog sfd = new SaveFileDialog();
             //はじめに「ファイル名」で表示される文字列を指定する
-            sfd.FileName = "日木.csv";
-            
+            //ファイル名〇月〇日.csv
+            sfd.FileName = now + ".csv";
+                        
             sfd.ShowDialog();
             
             StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8);
@@ -119,15 +128,17 @@ namespace CountDiary {
 
                 FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create);
                 BinaryWriter bw = new BinaryWriter(fs);
-                //d.count = tlength;
-
-                bw.Write(d.name);
+                d.count = tlength;
+                                                
+                bw.Write(d.count);
 
                 bw.Close();
                 fs.Close();
 
                 MessageBox.Show("保存しました");
             }
+
+            //if(countchara.Text)
 
 #if false
             //countchara.Text(tlength)
@@ -149,7 +160,7 @@ namespace CountDiary {
                 d.name = br.ReadBytes(32);
                 string text = System.Text.Encoding.ASCII.GetString(d.name);
                 text = text.TrimEnd('\0');
-
+                                                
                 //d.count = br.ReadDecimal();
 
                 MessageBox.Show("読み込みが完了しました");

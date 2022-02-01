@@ -7,5 +7,6 @@ using System.Threading.Tasks;
 namespace CountDiary {
     internal class data {
         public byte[] name;
+        internal int count;
     }
 }

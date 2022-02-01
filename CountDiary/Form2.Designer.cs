@@ -32,7 +32,7 @@ namespace CountDiary {
             // 
             this.wood.Location = new System.Drawing.Point(12, 12);
             this.wood.Name = "wood";
-            this.wood.Size = new System.Drawing.Size(459, 551);
+            this.wood.Size = new System.Drawing.Size(450, 550);
             this.wood.TabIndex = 0;
             this.wood.TabStop = false;
             // 
@@ -40,7 +40,7 @@ namespace CountDiary {
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 575);
+            this.ClientSize = new System.Drawing.Size(484, 581);
             this.Controls.Add(this.wood);
             this.Name = "Form2";
             this.Text = "木";
