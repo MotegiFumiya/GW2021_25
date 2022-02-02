@@ -9,17 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CountDiary {
-    public partial class Form2 : Form {
-        public Form2() {
+    public partial class Form3 : Form {
+        public Form3() {
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e) {
-            //画像ファイルを読み込む
-           
-            wood.ImageLocation = "C:/Users/infosys/Desktop/木/nae.png";
+        private void Form3_Load(object sender, EventArgs e) {
+            wood2.ImageLocation = "C:/Users/infosys/Desktop/木/nae2.png";
         }
-        
-        
     }
 }

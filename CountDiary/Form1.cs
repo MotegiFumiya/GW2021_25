@@ -29,11 +29,22 @@ namespace CountDiary {
         
         //ウインドウ遷移
         private void 木を見るToolStripMenuItem_Click_1(object sender, EventArgs e) {
-           
+            int tlength = this.TextDiary.TextLength;
+
+            var tlen = tlength.ToString();
+
+            countchara.Text = tlen;
             //if()
-            
-            //Form2 f2 = new Form2();
+
+            Form2 f2 = new Form2();
+            Form3 f3 = new Form3();
+
             //f2.Show();
+            if (tlength < 15) {
+                f2.Show();
+            } else {
+                f3.Show();
+            }
         }
 
         //終了処理
@@ -115,6 +126,7 @@ namespace CountDiary {
         //文字数保存＆更新
         private void update_Click(object sender, EventArgs e) {
 
+
             int tlength = this.TextDiary.TextLength;
 
             var tlen = tlength.ToString();
@@ -138,7 +150,7 @@ namespace CountDiary {
                 MessageBox.Show("保存しました");
             }
 
-            //if(countchara.Text)
+
 
 #if false
             //countchara.Text(tlength)
