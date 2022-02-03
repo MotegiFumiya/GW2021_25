@@ -34,12 +34,13 @@ namespace CountDiary {
             this.label1 = new System.Windows.Forms.Label();
             this.count = new System.Windows.Forms.Label();
             this.Resetb = new System.Windows.Forms.Button();
-            this.update = new System.Windows.Forms.Button();
+            this.save = new System.Windows.Forms.Button();
             this.countchara = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.call = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.update = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,8 +85,8 @@ namespace CountDiary {
             // 
             this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
             this.保存ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.保存ToolStripMenuItem.Text = "名前を付けて保存...";
+            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.保存ToolStripMenuItem.Text = "日記を保存する";
             this.保存ToolStripMenuItem.Click += new System.EventHandler(this.保存ToolStripMenuItem_Click);
             // 
             // 終了ToolStripMenuItem
@@ -147,17 +148,17 @@ namespace CountDiary {
             this.Resetb.UseVisualStyleBackColor = false;
             this.Resetb.Click += new System.EventHandler(this.Resetb_Click);
             // 
-            // update
+            // save
             // 
-            this.update.BackColor = System.Drawing.Color.White;
-            this.update.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.update.Location = new System.Drawing.Point(491, 426);
-            this.update.Name = "update";
-            this.update.Size = new System.Drawing.Size(70, 35);
-            this.update.TabIndex = 6;
-            this.update.Text = "保存";
-            this.update.UseVisualStyleBackColor = false;
-            this.update.Click += new System.EventHandler(this.update_Click);
+            this.save.BackColor = System.Drawing.Color.White;
+            this.save.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.save.Location = new System.Drawing.Point(491, 426);
+            this.save.Name = "save";
+            this.save.Size = new System.Drawing.Size(70, 35);
+            this.save.TabIndex = 6;
+            this.save.Text = "保存";
+            this.save.UseVisualStyleBackColor = false;
+            this.save.Click += new System.EventHandler(this.save_Click);
             // 
             // countchara
             // 
@@ -188,15 +189,28 @@ namespace CountDiary {
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // update
+            // 
+            this.update.BackColor = System.Drawing.Color.White;
+            this.update.Font = new System.Drawing.Font("MS UI Gothic", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.update.Location = new System.Drawing.Point(415, 426);
+            this.update.Name = "update";
+            this.update.Size = new System.Drawing.Size(70, 35);
+            this.update.TabIndex = 9;
+            this.update.Text = "更新";
+            this.update.UseVisualStyleBackColor = false;
+            this.update.Click += new System.EventHandler(this.update_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(815, 464);
+            this.Controls.Add(this.update);
             this.Controls.Add(this.call);
             this.Controls.Add(this.countchara);
-            this.Controls.Add(this.update);
+            this.Controls.Add(this.save);
             this.Controls.Add(this.Resetb);
             this.Controls.Add(this.count);
             this.Controls.Add(this.label1);
@@ -225,13 +239,14 @@ namespace CountDiary {
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label count;
         private System.Windows.Forms.Button Resetb;
-        private System.Windows.Forms.Button update;
+        private System.Windows.Forms.Button save;
         private System.Windows.Forms.ToolStripMenuItem 文字全削除ToolStripMenuItem;
         private System.Windows.Forms.Label countchara;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Button call;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button update;
     }
 }
 

@@ -16,6 +16,10 @@ namespace CountDiary {
 
         private void Form3_Load(object sender, EventArgs e) {
             wood2.ImageLocation = "C:/Users/infosys/Desktop/木/nae2.png";
+
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            MinimizeBox = false;
         }
     }
 }
