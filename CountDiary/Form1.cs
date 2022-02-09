@@ -78,23 +78,6 @@ namespace CountDiary {
             sw.Close();
 
         }
-#if false
-        //private void 過去の日記を開くToolStripMenuItem_Click(object sender, EventArgs e) {
-        //    OpenFileDialog ofd = new OpenFileDialog();
-
-        //    ofd.InitialDirectory= @"C:\Users\infosys\source\repos\GW2021_25\Diary.csv";
-
-        //    //タイトルを設定する
-        //    ofd.Title= "開くファイルを選択してください";
-
-        //    //ダイアログを表示する
-        //    if (ofd.ShowDialog() == DialogResult.OK) {
-        //        //OKボタンがクリックされたとき、選択されたファイル名を表示する
-        //        Console.WriteLine(ofd.FileName);
-        //    }
-        //}
-#endif
-
 
         //文字削除
         private void 文字全削除ToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -122,12 +105,11 @@ namespace CountDiary {
 
 
         //ウィンドウサイズ変更不可
-        
         private void Form1_Load(object sender, EventArgs e) {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            using (var reader = new StreamReader("C:/Users/infosys/source/repos/GW2021_25/test.csv")) {
+            using (var reader = new StreamReader("C:/Users/infosys/source/repos/GW2021_25/count.txt")) {
                 string count = reader.ReadToEnd();
                 countchara.Text = count;
             }
@@ -143,25 +125,9 @@ namespace CountDiary {
 
         //文字数保存
         private void save_Click(object sender, EventArgs e) {
-                using (var writer = new StreamWriter("C:/Users/infosys/source/repos/GW2021_25/test.csv")) {
+                using (var writer = new StreamWriter("C:/Users/infosys/source/repos/GW2021_25/count.txt")) {
                     writer.WriteLine(countchara.Text);
                 MessageBox.Show("保存しました");
-#if false
-                data d = new data();
-                d.name = new byte[32];
-                System.Text.Encoding.UTF8.GetBytes(countchara.Text);
-
-                FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.Create);
-                //BinaryWriter bw = new BinaryWriter(fs);
-                TextWriter tw = new TextWriter(tw);
-                d.count = tlength;
-
-                bw.Write(d.count);
-
-                bw.Close();
-                fs.Close();
-                MessageBox.Show("保存しました");
-#endif
             }
         }
 
@@ -188,8 +154,5 @@ namespace CountDiary {
         }
 
         
-
-        
-
     }
 }

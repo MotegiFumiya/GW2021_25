@@ -118,7 +118,7 @@ namespace CountDiary {
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("MV Boli", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label1.ForeColor = System.Drawing.Color.Lime;
             this.label1.Location = new System.Drawing.Point(12, 427);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 31);
@@ -195,6 +195,7 @@ namespace CountDiary {
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MV Boli", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DeepPink;
             this.label2.Location = new System.Drawing.Point(403, 430);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(110, 28);
