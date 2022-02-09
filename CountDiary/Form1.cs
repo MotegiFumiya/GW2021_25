@@ -29,22 +29,27 @@ namespace CountDiary {
         
         //ウインドウ遷移
         private void 木を見るToolStripMenuItem_Click_1(object sender, EventArgs e) {
-            int tlength = this.TextDiary.TextLength;
+            int tlength = TextDiary.TextLength;
 
             var tlen = tlength.ToString();
 
-            countchara.Text = tlen;
+            var count = int.Parse(countchara.Text);
             
             //仮
             Form2 f2 = new Form2();
             Form3 f3 = new Form3();
+            Form4 f4 = new Form4();
 
             
-            if (tlength < 15) {
+            if (count <= 10) {
                 f2.Show();
-            } else {
+            }else if (count  <= 15) {
                 f3.Show();
+            }else if (count  <= 20) {
+                f4.Show();
             }
+
+            
         }
 
         //終了処理
@@ -93,7 +98,12 @@ namespace CountDiary {
 
         //文字削除
         private void 文字全削除ToolStripMenuItem_Click(object sender, EventArgs e) {
-            ClearTextBox(this);
+            DialogResult reset = MessageBox.Show("本当に削除しますか？", "削除",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (reset == DialogResult.Yes) {
+                ClearTextBox(this);
+            }
+            
         }
 
         //文字削除関数
@@ -110,16 +120,22 @@ namespace CountDiary {
         }
 
 
+
         //ウィンドウサイズ変更不可
+        
         private void Form1_Load(object sender, EventArgs e) {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            
+
+            using (var reader = new StreamReader("C:/Users/infosys/source/repos/GW2021_25/test.csv")) {
+                string count = reader.ReadToEnd();
+                countchara.Text = count;
+            }
         }
 
         //累計文字数リセット
         private void Resetb_Click(object sender, EventArgs e) {
-            DialogResult reset = MessageBox.Show("本当にリセットしますか？", "文字数リセット", MessageBoxButtons.YesNo);
+            DialogResult reset = MessageBox.Show("本当にcountをリセットしますか？", "reset", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
             if (reset == DialogResult.Yes) {
                 countchara.Text = "0";
             }
@@ -127,12 +143,9 @@ namespace CountDiary {
 
         //文字数保存
         private void save_Click(object sender, EventArgs e) {
-
-            if (saveFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
                 using (var writer = new StreamWriter("C:/Users/infosys/source/repos/GW2021_25/test.csv")) {
                     writer.WriteLine(countchara.Text);
-                } 
-
+                MessageBox.Show("保存しました");
 #if false
                 data d = new data();
                 d.name = new byte[32];
@@ -167,7 +180,7 @@ namespace CountDiary {
             int ans = tlength += count;
 
             //更新確認
-            DialogResult check = MessageBox.Show("文字数を更新しますか？", "更新", MessageBoxButtons.YesNo);
+            DialogResult check = MessageBox.Show("文字数を加算します", "add", MessageBoxButtons.YesNo);
             if (check == DialogResult.Yes) {
                 countchara.Text = ans.ToString();
             }
@@ -176,32 +189,7 @@ namespace CountDiary {
 
         
 
-        //保存した文字数呼出し
-        private void call_Click(object sender, EventArgs e) {
-            if (openFileDialog1.ShowDialog() == System.Windows.Forms.DialogResult.OK) {
-                
-                using (var reader = new StreamReader("C:/Users/infosys/source/repos/GW2021_25/test.csv")) {
-                    string count = reader.ReadToEnd();
-                    countchara.Text = count;
-                }
-#if false
-                data d = new data();
-
-                FileStream fs = new FileStream(openFileDialog1.FileName, FileMode.Open);
-                BinaryReader br = new BinaryReader(fs);
-
-                d.name = br.ReadBytes(32);
-                string text = System.Text.Encoding.ASCII.GetString(d.name);
-                text = text.TrimEnd('\0');
-
-                //d.count = br.ReadDecimal();
-
-                MessageBox.Show("読み込みが完了しました");
-                countchara.Text += string.Format(text);
-                //countchara.Text += string.Format("{0:g}\r\n",d.count);
-#endif
-            }
-        }
+        
 
     }
 }
