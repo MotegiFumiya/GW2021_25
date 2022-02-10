@@ -1,0 +1,57 @@
+﻿
+namespace CountDiary {
+    partial class wood_summer {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing) {
+            if (disposing && (components != null)) {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent() {
+            this.woodpic = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.woodpic)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // woodpic
+            // 
+            this.woodpic.Location = new System.Drawing.Point(12, 12);
+            this.woodpic.Name = "woodpic";
+            this.woodpic.Size = new System.Drawing.Size(450, 550);
+            this.woodpic.TabIndex = 0;
+            this.woodpic.TabStop = false;
+            // 
+            // wood_summer
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(484, 581);
+            this.Controls.Add(this.woodpic);
+            this.Name = "wood_summer";
+            this.Text = "Summer";
+            this.Load += new System.EventHandler(this.wood_summer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.woodpic)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.PictureBox woodpic;
+    }
+}

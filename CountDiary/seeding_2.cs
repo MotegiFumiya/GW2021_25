@@ -9,9 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CountDiary {
-    public partial class Form7 : Form {
-        public Form7() {
+    public partial class seeding_2 : Form {
+        public seeding_2() {
             InitializeComponent();
+        }
+
+        private void seeding_2_Load(object sender, EventArgs e) {
+            woodpic2.ImageLocation = "Image/nae2.png";
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
     }
 }

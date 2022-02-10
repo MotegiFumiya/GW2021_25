@@ -1,6 +1,6 @@
 ﻿
 namespace CountDiary {
-    partial class Form1 {
+    partial class Main_Form {
         /// <summary>
         /// 必要なデザイナー変数です。
         /// </summary>
@@ -49,6 +49,7 @@ namespace CountDiary {
             this.TextDiary.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.TextDiary.BackColor = System.Drawing.Color.Khaki;
             this.TextDiary.Font = new System.Drawing.Font("ＭＳ ゴシック", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.TextDiary.Location = new System.Drawing.Point(13, 34);
             this.TextDiary.MaxLength = 500;
@@ -121,9 +122,9 @@ namespace CountDiary {
             this.label1.ForeColor = System.Drawing.Color.Lime;
             this.label1.Location = new System.Drawing.Point(12, 427);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 31);
+            this.label1.Size = new System.Drawing.Size(76, 31);
             this.label1.TabIndex = 3;
-            this.label1.Text = "count";
+            this.label1.Text = "total";
             // 
             // count
             // 
@@ -202,7 +203,7 @@ namespace CountDiary {
             this.label2.TabIndex = 10;
             this.label2.Text = "character";
             // 
-            // Form1
+            // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -219,9 +220,9 @@ namespace CountDiary {
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "Main_Form";
             this.Text = "WooDialy";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Main_Form_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

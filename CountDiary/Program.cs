@@ -15,7 +15,7 @@ namespace CountDiary {
         static void Main() {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Main_Form());
 
 #if false
             using (StreamReader reader = new

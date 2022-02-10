@@ -1,6 +1,6 @@
 ﻿
 namespace CountDiary {
-    partial class Form4 {
+    partial class seeding_3 {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -24,34 +24,34 @@ namespace CountDiary {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.wood4 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.wood4)).BeginInit();
+            this.woodpic = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.woodpic)).BeginInit();
             this.SuspendLayout();
             // 
-            // wood4
+            // woodpic
             // 
-            this.wood4.Location = new System.Drawing.Point(12, 12);
-            this.wood4.Name = "wood4";
-            this.wood4.Size = new System.Drawing.Size(450, 550);
-            this.wood4.TabIndex = 0;
-            this.wood4.TabStop = false;
+            this.woodpic.Location = new System.Drawing.Point(12, 12);
+            this.woodpic.Name = "woodpic";
+            this.woodpic.Size = new System.Drawing.Size(450, 550);
+            this.woodpic.TabIndex = 0;
+            this.woodpic.TabStop = false;
             // 
-            // Form4
+            // seeding_3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 581);
-            this.Controls.Add(this.wood4);
-            this.Name = "Form4";
-            this.Text = "Form4";
-            this.Load += new System.EventHandler(this.Form4_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.wood4)).EndInit();
+            this.Controls.Add(this.woodpic);
+            this.Name = "seeding_3";
+            this.Text = "Wood";
+            this.Load += new System.EventHandler(this.seeding_3_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.woodpic)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox wood4;
+        private System.Windows.Forms.PictureBox woodpic;
     }
 }

@@ -13,43 +13,92 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 
 namespace CountDiary {
-    public partial class Form1 : Form {
+    public partial class Main_Form : Form {
 
-        
 
-        public Form1() {
+
+        public Main_Form() {
 
             InitializeComponent();
 
         }
-        
+
         private void textBox1_TextChanged(object sender, EventArgs e) {
-            
+
         }
-        
+
         //ウインドウ遷移
         private void 木を見るToolStripMenuItem_Click_1(object sender, EventArgs e) {
+            String now = DateTime.Today.Month.ToString();
+            
+#if true
+            int jan = 1; int feb = 2; int mar = 3;
+            int apr = 4; int may = 5; int jun = 6;
+            int jul = 7; int aug = 8; int sep = 9;
+            int oct = 10; int nov = 11; int dec = 12;
+
+            var ja = jan.ToString(); var fe = feb.ToString(); var ma = mar.ToString();
+            var ap = apr.ToString(); var m = may.ToString(); var j = jun.ToString();
+            var jl = jul.ToString(); var au = aug.ToString(); var se = sep.ToString();
+            var oc = oct.ToString(); var no = nov.ToString(); var de = dec.ToString();
+#endif
+
             int tlength = TextDiary.TextLength;
 
             var tlen = tlength.ToString();
 
             var count = int.Parse(countchara.Text);
-            
-            //仮
-            Form2 f2 = new Form2();
-            Form3 f3 = new Form3();
-            Form4 f4 = new Form4();
 
-            
-            if (count <= 10) {
-                f2.Show();
-            }else if (count  <= 15) {
-                f3.Show();
-            }else if (count  <= 20) {
-                f4.Show();
+            //仮
+            seeding_1 seed1 = new seeding_1();
+            seeding_2 seed2 = new seeding_2();
+            seeding_3 seed3 = new seeding_3();
+            wood_1 wood1 = new wood_1();
+            wood_2 wood2 = new wood_2();
+            wood_3 wood3 = new wood_3();
+            wood_winter winter = new wood_winter();
+            wood_spring spring = new wood_spring();
+            wood_summer summer = new wood_summer();
+            wood_fall fall = new wood_fall();
+
+
+            //総文字数によって移動するシーンを変更
+            if (count >= 0 && count <= 1750) {
+                seed1.Show();
+            }
+            else if (count > 1750 && count <= 3500) {
+                seed2.Show();
+            }
+            else if (count > 3500 && count <= 5250) {
+                seed3.Show();
+            } 
+            else if (count > 5250 && count <= 7000) {
+                wood1.Show();
+            }
+            else if (count > 7000 && count <= 8750) {
+                wood2.Show();
+            }
+            else if (count > 8750 && count <= 12250) {
+                wood3.Show();
+            }
+            else if (count >12250) {
+               
+                if (now == ja || now == fe || now == de) {
+                    winter.Show();
+                }
+                else if(now == ma || now == ap || now == m) {
+                    spring.Show();
+                }
+                else if (now == j || now == jl || now == au) {
+                    summer.Show();
+                }
+                else if(now == se || now == oc || now == no) {
+                    fall.Show();
+                }
+
+                
             }
 
-            
         }
 
         //終了処理
@@ -64,14 +113,14 @@ namespace CountDiary {
         private void 保存ToolStripMenuItem_Click(object sender, EventArgs e) {
             //現在の日付のみ取得
             String now = DateTime.Now.ToString("D");
-            
+
             SaveFileDialog sfd = new SaveFileDialog();
             //はじめに「ファイル名」で表示される文字列を指定する
             //ファイル名〇月〇日.csv
             sfd.FileName = now + ".txt";
-                        
+
             sfd.ShowDialog();
-            
+
             StreamWriter sw = new StreamWriter(sfd.FileName, false, Encoding.UTF8);
             sw.Write(TextDiary.Text);
             //sw.WriteLine(TextDiary.Text);
@@ -86,7 +135,7 @@ namespace CountDiary {
             if (reset == DialogResult.Yes) {
                 ClearTextBox(this);
             }
-            
+
         }
 
         //文字削除関数
@@ -102,10 +151,8 @@ namespace CountDiary {
             }
         }
 
-
-
         //ウィンドウサイズ変更不可
-        private void Form1_Load(object sender, EventArgs e) {
+        private void Main_Form_Load(object sender, EventArgs e) {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
@@ -117,18 +164,21 @@ namespace CountDiary {
 
         //累計文字数リセット
         private void Resetb_Click(object sender, EventArgs e) {
-            DialogResult reset = MessageBox.Show("本当にcountをリセットしますか？", "reset", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            DialogResult reset = MessageBox.Show("本当にcountをリセットしますか？", "reset", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (reset == DialogResult.Yes) {
                 countchara.Text = "0";
+                var count = int.Parse(countchara.Text);
+                count = 0;
             }
         }
 
         //文字数保存
         private void save_Click(object sender, EventArgs e) {
-                using (var writer = new StreamWriter("C:/Users/infosys/source/repos/GW2021_25/count.txt")) {
-                    writer.WriteLine(countchara.Text);
-                MessageBox.Show("保存しました");
+            using (var writer = new StreamWriter("C:/Users/infosys/source/repos/GW2021_25/count.txt")) {
+                writer.WriteLine(countchara.Text);
+                MessageBox.Show("文字数を保存しました");
             }
+
         }
 
         //文字数加算（更新）
@@ -150,9 +200,10 @@ namespace CountDiary {
             if (check == DialogResult.Yes) {
                 countchara.Text = ans.ToString();
             }
-            
+
         }
 
-        
+
     }
 }
+    
